@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+
+//Colours
+$color-primary: #fead4f;
+$color-bg: #000c2b;
+$background-color: $color-bg;
+
+//Responsive
+$mobile-width: 768px;
+$tablet-width: 1024px;
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: Montserrat, -apple-system, Open Sans, sans-serif;
+}
