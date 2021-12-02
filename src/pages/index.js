@@ -128,7 +128,7 @@ export default function Home() {
           trigger: ".block--1",
           // start: "top 80%",
           // pin: true,
-          // end: "bottom 50%",
+          // end: "bottom 10%",
           start: "top center",
           end: "bottom top",
           scrub: true,
@@ -148,7 +148,7 @@ export default function Home() {
           trigger: ".block--2",
           // start: "top 80%",
           // pin: true,
-          end: "bottom 10%",
+          // end: "bottom 10%",
           scrub: true,
         },
       })
