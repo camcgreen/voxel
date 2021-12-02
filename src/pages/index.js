@@ -8,6 +8,10 @@ import Block0Shard1 from "../images/shard-0-roof.png"
 import Block0Shard2 from "../images/shard-0-city.png"
 import Block0Shard3 from "../images/shard-0-taxi.png"
 import Block0Shard4 from "../images/shard-0-people.png"
+import Block2Shard0 from "../images/shard-2-green.png"
+import Block2Shard1 from "../images/shard-2-plant.png"
+import Block2Shard2 from "../images/shard-2-roof.png"
+import Block2Shard3 from "../images/shard-2-people.png"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -46,7 +50,9 @@ export default function Home() {
     })
 
     const parallaxElements0 = gsap.utils.toArray(".parallax0")
+    const parallaxElements1 = gsap.utils.toArray(".parallax1")
     const parallaxElements2 = gsap.utils.toArray(".parallax2")
+    const parallaxElements3 = gsap.utils.toArray(".parallax3")
 
     function callParallax(e) {
       parallaxElements0.forEach((parallaxElement, i) => {
@@ -54,8 +60,18 @@ export default function Home() {
         const factor = 1
         parallaxIt(e, parallaxElement, magnitude * (i + factor))
       })
+      parallaxElements1.forEach((parallaxElement, i) => {
+        const magnitude = 5
+        const factor = 1
+        parallaxIt(e, parallaxElement, magnitude * (i + factor))
+      })
       parallaxElements2.forEach((parallaxElement, i) => {
         const magnitude = 25
+        const factor = 1
+        parallaxIt(e, parallaxElement, magnitude * (i + factor))
+      })
+      parallaxElements3.forEach((parallaxElement, i) => {
+        const magnitude = 5
         const factor = 1
         parallaxIt(e, parallaxElement, magnitude * (i + factor))
       })
@@ -78,21 +94,43 @@ export default function Home() {
 
     //Enter effects
     const enterElements0 = gsap.utils.toArray(".enter0")
+    const enterElements1 = gsap.utils.toArray(".enter1")
     const enterElements2 = gsap.utils.toArray(".enter2")
+    const enterElements3 = gsap.utils.toArray(".enter3")
 
     enterElements0.forEach((enterElement, i) => {
       gsap.from(enterElement, {
         // scale: 0.5,
         scale: 0,
-        // opacity: 0,
+        opacity: 0,
+        skewY: -40,
+        duration: 0.1 * (i + 15),
+        ease: "expo.out",
+        // scrollTrigger: {
+        //   trigger: ".block--0",
+        //   // start: "top 80%",
+        //   // pin: true,
+        //   end: "bottom 10%",
+        //   scrub: true,
+        // },
+      })
+    })
+
+    enterElements1.forEach((enterElement, i) => {
+      gsap.from(enterElement, {
+        // scale: 0.5,
+        // scale: 0,
+        opacity: 0,
         skewY: -40,
         duration: 0.1 * (i + 15),
         ease: "expo.out",
         scrollTrigger: {
-          trigger: ".block--0",
+          trigger: ".block--1",
           // start: "top 80%",
           // pin: true,
-          end: "bottom 10%",
+          // end: "bottom 50%",
+          start: "top center",
+          end: "bottom top",
           scrub: true,
         },
       })
@@ -111,6 +149,26 @@ export default function Home() {
           // start: "top 80%",
           // pin: true,
           end: "bottom 10%",
+          scrub: true,
+        },
+      })
+    })
+
+    enterElements3.forEach((enterElement, i) => {
+      gsap.from(enterElement, {
+        // scale: 0.5,
+        scale: 0,
+        // opacity: 0,
+        skewY: -40,
+        duration: 0.1 * (i + 15),
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: ".block--3",
+          // start: "top 80%",
+          // pin: true,
+          // end: "bottom 10%",
+          start: "top center",
+          end: "bottom top",
           scrub: true,
         },
       })
@@ -153,9 +211,6 @@ export default function Home() {
         </svg>
       </nav>
       <main className="main">
-        <section className="block block--init" style={{ marginBottom: 250 }}>
-          <button>Enter</button>
-        </section>
         <section
           className="block block--0"
           // style={{ background: "lightblue" }}
@@ -194,35 +249,44 @@ export default function Home() {
             DIGITAL DESTINATIONS
           </h1>
         </section>
-        <section className="block block--1"></section>
+        <section className="block block--1">
+          <div class="block__circles block__circles--1">
+            <div class="enter1 parallax1 block__circles__circle block__circles--1__8"></div>
+            <div class="enter1 parallax1 block__circles__circle block__circles--1__9"></div>
+            <div class="enter1 parallax1 block__circles__circle block__circles--1__0"></div>
+            <div class="enter1 parallax1 block__circles__circle block__circles--1__1"></div>
+            <div class="enter1 parallax1 block__circles__circle block__circles--1__2"></div>
+            <div class="enter1 parallax1 block__circles__circle block__circles--1__3"></div>
+            <div class="enter1 parallax1 block__circles__circle block__circles--1__4"></div>
+            <div class="enter1 parallax1 block__circles__circle block__circles--1__5"></div>
+            <div class="enter1 parallax1 block__circles__circle block__circles--1__6"></div>
+            <div class="enter1 parallax1 block__circles__circle block__circles--1__7"></div>
+            <div class="enter1 parallax1 block__circles__circle block__circles--1__10"></div>
+          </div>
+        </section>
         <section
           className="block block--2"
           // style={{ background: "lightblue" }}
         >
           <img
-            src={Block0Shard0}
+            src={Block2Shard0}
             alt=""
             className="enter2 parallax2 block--2__shard--0"
           />
           <img
-            src={Block0Shard1}
-            alt=""
-            className="enter2 parallax2 block--2__shard--1"
-          />
-          <img
-            src={Block0Shard2}
+            src={Block2Shard2}
             alt=""
             className="enter2 parallax2 block--2__shard--2"
           />
           <img
-            src={Block0Shard3}
+            src={Block2Shard1}
             alt=""
-            className="enter2 parallax2 block--2__shard--3"
+            className="enter2 parallax2 block--2__shard--1"
           />
           <img
-            src={Block0Shard4}
+            src={Block2Shard3}
             alt=""
-            className="enter2 parallax2 block--2__shard--4"
+            className="enter2 parallax2 block--2__shard--3"
           />
           <div class="block__circles block__circles--2">
             <div class="enter2 parallax2 block__circles__circle block__circles--2__0"></div>
@@ -233,7 +297,21 @@ export default function Home() {
             ENGAGE
           </h1>
         </section>
-        <section className="block block--3"></section>
+        <section className="block block--3">
+          <div class="block__circles block__circles--3">
+            <div class="enter3 parallax3 block__circles__circle block__circles--3__8"></div>
+            <div class="enter3 parallax3 block__circles__circle block__circles--3__9"></div>
+            <div class="enter3 parallax3 block__circles__circle block__circles--3__0"></div>
+            <div class="enter3 parallax3 block__circles__circle block__circles--3__1"></div>
+            <div class="enter3 parallax3 block__circles__circle block__circles--3__2"></div>
+            <div class="enter3 parallax3 block__circles__circle block__circles--3__3"></div>
+            <div class="enter3 parallax3 block__circles__circle block__circles--3__4"></div>
+            <div class="enter3 parallax3 block__circles__circle block__circles--3__5"></div>
+            <div class="enter3 parallax3 block__circles__circle block__circles--3__6"></div>
+            <div class="enter3 parallax3 block__circles__circle block__circles--3__7"></div>
+            <div class="enter3 parallax3 block__circles__circle block__circles--3__10"></div>
+          </div>
+        </section>
       </main>
       {/* <div className="overlay">overlay</div> */}
     </div>
